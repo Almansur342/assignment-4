@@ -29,4 +29,20 @@ function checkName(name){
   return 'bad'
   }
 
-console.log(checkName(['Jhankar'])); 
+// console.log(checkName(['Jhankar'])); 
+
+function deleteInvalids(array){
+  if(typeof array !== 'array'){
+    return 'Invalid Array';
+  }
+  let number = [];
+  for(const arr of array){
+    if(typeof arr === 'number' && isNaN(arr) === false){
+      number.push(arr);
+    }
+  }
+  return number;
+}
+const rihjy = deleteInvalids({num: [ 1 , 2 , 3 ]});
+console.log(rihjy);
+

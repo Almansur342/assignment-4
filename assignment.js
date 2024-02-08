@@ -44,5 +44,22 @@ function deleteInvalids(array){
   return number;
 }
 const rihjy = deleteInvalids({num: [ 1 , 2 , 3 ]});
-console.log(rihjy);
+// console.log(rihjy);
 
+
+ function password(object){
+ if(object.name == null || object.birthYear == null || object.siteName == null || object.birthYear < 1000 || object.birthYear > 9999){
+  return 'invalid';
+ }
+ const name = object.name;
+ const birth = object.birthYear;
+ const site = object.siteName;
+ const siteUpper = site[0].toUpperCase();
+ const ultimateSite = siteUpper + site.slice(1);
+ const generatedPass = `${ultimateSite}#${name}@${birth}`;
+ return generatedPass;
+
+ }
+ const result =  password({ name: 'kolimuddin' , birthYear: 1999 , siteName: 'google' });
+//  console.log(result);
+ 

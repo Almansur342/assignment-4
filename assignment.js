@@ -1,6 +1,6 @@
 function calculateMoney(ticket){
   if(ticket < 0){
-    return 'Invalid Number';
+    return "“Invalid Number”";
   }
  const perTicket = 120;
  const keeper = 500;
@@ -15,7 +15,7 @@ function calculateMoney(ticket){
 
 function checkName(name){
   if(typeof name !== 'string'){
-    return 'Invalid'
+    return 'invalid'
   }
   const check = ['A', 'y', 'i' , 'e' , 'o' , 'u', 'w']
   for(const ch of check){
@@ -23,17 +23,17 @@ function checkName(name){
     const nameAccess = name;
   const nameLower = nameAccess.toLowerCase();
   if(nameLower.slice(-1).includes(checkLower)){
-    return 'good';
+    return "Good Name";
   } 
   }
-  return 'bad'
+  return "Bad Name"
   }
 
 // console.log(checkName(['Jhankar'])); 
 
 function deleteInvalids(array){
   if(typeof array !== 'array'){
-    return 'Invalid Array';
+    return "“Invalid Array”";
   }
   let number = [];
   for(const arr of array){
@@ -49,7 +49,7 @@ const rihjy = deleteInvalids({num: [ 1 , 2 , 3 ]});
 
  function password(object){
  if(object.name == null || object.birthYear == null || object.siteName == null || object.birthYear < 1000 || object.birthYear > 9999){
-  return 'invalid';
+  return "invalid";
  }
  const name = object.name;
  const birth = object.birthYear;
@@ -60,6 +60,28 @@ const rihjy = deleteInvalids({num: [ 1 , 2 , 3 ]});
  return generatedPass;
 
  }
- const result =  password({ name: 'kolimuddin' , birthYear: 1999 , siteName: 'google' });
+//  const result =  password({ name: 'kolimuddin' , birthYear: 1999 , siteName: 'google' });
 //  console.log(result);
  
+ function monthlySavings(income, living){
+  if(typeof living !== 'number' || !Array.isArray(income)){
+    return "invalid input";
+  }
+  let earning = 0;
+  let tax = 0;
+  for(const arr of income){
+    earning = earning + arr;
+    if(arr >= 3000){
+      tax = arr*0.2;
+    }
+  }
+  const totalSavings = earning - tax - living;
+  if(totalSavings >= 0 ){
+    return totalSavings;
+  }else{
+    return "“earn more”"
+  }
+}
+ 
+ const result = monthlySavings([ 1000 , 2000 , 4000 ] , 40000);
+ console.log(result);
